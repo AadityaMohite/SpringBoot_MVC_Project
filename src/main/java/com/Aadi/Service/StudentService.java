@@ -25,6 +25,13 @@ public class StudentService {
 			student.setCourseduration("2 Month");
 		}
 	
+	    
+	    if(studentRepository.existsByEmail(student.getEmail())) {
+	    	return "Email is alerady exists please enter the new email";
+	    }
+	    
+	    
+	    
 		   studentRepository.save(student);
 		   
 		   return "Student saved Sucessfully";

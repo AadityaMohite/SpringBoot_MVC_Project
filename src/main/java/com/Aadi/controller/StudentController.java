@@ -28,13 +28,35 @@ public class StudentController {
 	@PostMapping("/save")
 	public String Savedata(Student student,Model model) {
 		
-		   String msgString =  service.saveStudent(student);
 		
-		   model.addAttribute("message", msgString);
+		
+		
+		
+		   String msgString =  service.saveStudent(student);
+		   
+		   if(msgString.equals("Email is alerady exists please enter the new email")) {
+			   model.addAttribute("msg",msgString);
+			   model.addAttribute("student",student);
+			   return "Student-enrollment";
+		   }else {
+	     	   model.addAttribute("message", msgString);
+	     	   model.addAttribute("student",new Student());
+	     	   return "Student-enrollment";
+		   }
 		   
 		   
-		   return "Student-enrollment";
 		   
 	}
+	
+	@GetMapping("/home")
+	public String homePage() {
+		
+		
+		
+		
+		return "home";
+	}
+	
+	
 	
 }
