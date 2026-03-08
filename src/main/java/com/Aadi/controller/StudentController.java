@@ -1,5 +1,7 @@
 package com.Aadi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.Aadi.Service.StudentService;
+import com.Aadi.Studentdto.StudentDto;
 import com.Aadi.entity.Student;
 
 @Controller
@@ -46,6 +49,20 @@ public class StudentController {
 		   
 		   
 		   
+	}
+	
+	@GetMapping("/student-List")
+	
+	public String StudentList( Model model){
+		
+		       List<StudentDto> students =    service.getAll();
+		
+		       model.addAttribute("students", students);
+		       
+		         
+		
+		return "Student-List";
+		
 	}
 	
 	@GetMapping("/home")

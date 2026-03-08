@@ -28,7 +28,7 @@ public class Student {
 	
 	private String course;
 	
-	private String timings;
+	private String[] timings;
 	
 	private String address;
 	

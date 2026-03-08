@@ -1,8 +1,14 @@
 package com.Aadi.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Aadi.Studentdto.StudentDto;
 import com.Aadi.entity.Student;
 import com.Aadi.repo.StudentRepository;
 
@@ -38,5 +44,31 @@ public class StudentService {
 		
 		
 	}
+	
+	public List<StudentDto> getAll() {
+		
+		List<Student> students =    studentRepository.findAll();
+		
+		List<StudentDto> dtostudents = new ArrayList<>();
+		
+		for (Student student : students) {
+			
+			StudentDto dtostudent = new StudentDto();
+			
+			BeanUtils.copyProperties(student, dtostudent);
+			
+			dtostudent.setTimings(Arrays.toString(student.getTimings()));
+			
+			dtostudents.add(dtostudent);
+			
+		}
+		
+		
+		
+		return dtostudents;
+	}
+	
+	
+	
 	
 }
