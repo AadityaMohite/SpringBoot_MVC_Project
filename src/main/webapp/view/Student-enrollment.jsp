@@ -181,6 +181,7 @@ input[type="submit"]:hover {
     <label>Qualification:</label>
     <c:select path="qualification">
         <c:option value="BCA">BCA</c:option>
+        <c:option value="BSc">BSc</c:option>
         <c:option value="BCS">BCS</c:option>
         <c:option value="MCA">MCA</c:option>
         <c:option value="MCS">MCS</c:option>

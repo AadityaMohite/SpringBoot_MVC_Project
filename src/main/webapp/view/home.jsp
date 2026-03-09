@@ -15,13 +15,13 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Background */
+
 body{
     background: linear-gradient(to right, #4e73df, #1cc88a);
     padding-top:70px;
 }
 
-/* Navbar */
+
 .navbar{
     position:fixed;
     top:0;
@@ -51,17 +51,49 @@ body{
     color:#1cc88a;
 }
 
-/* MAIN SECTION */
 
-.main{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding-top:65px;
+
+.dashboard{
+    min-height: calc(100vh - 70px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
 }
 
-/* HERO BOX */
+
+.cards{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+
+.card{
+    background:white;
+    padding:30px 40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0px 10px 30px rgba(0,0,0,0.15);
+    width:280px;
+    transition:0.3s ease;
+    
+}
+
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+
+.count{
+    font-size:28px;
+    font-weight:bold;
+    margin-top:10px;
+    color:#1e293b;
+}
 
 .hero{
 background:white;
@@ -84,7 +116,7 @@ color:#475569;
 margin-bottom:30px;
 }
 
-/* BUTTON */
+
 
 .btn{
 display:inline-block;
@@ -118,7 +150,7 @@ transform:translateY(-3px);
 <a href="/enrollment">Enrollment</a>
 <a href="/home">Home</a>
 <a href="/About">About</a>
-<a href="/Student-List">Student-List</a>
+<a href="/student-List">Student-List</a>
 </div>
 
 </div>
@@ -126,23 +158,46 @@ transform:translateY(-3px);
 
 
 <!-- MAIN CONTENT -->
+<div class="dashboard">
 
-<div class="main">
+    <!-- Welcome Section -->
+    <div class="hero">
+        <h1>Welcome to Student Portal</h1>
+        <p>Manage student enrollments, courses, and records easily.</p>
+        <a href="/enrollment" class="btn">Enroll New Student</a>
+    </div>
 
-<div class="hero">
 
-<h1>Welcome to Student Portal</h1>
+    <div class="cards">
 
-<p>
-Manage student enrollments, courses, and records easily using this portal.
-</p>
+        <div class="card">
+            <h3>Total Students Enrolled in Courses</h3>
+            <div class="count">
+            
+            <br>
+            
+            ${totalstudent}</div>
+        </div>
 
-<a href="/enrollment" class="btn">Enroll New Student</a>
+        <div class="card">
+            <h3>Java Full Stack Course Enrolled Students: </h3><br>
+            <div class="count">
+            
+            ${count}<br><br>
+            
+          <a href="/Javafull" class="btn">Show Students-></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Python Full Stack Course Enrolled Students:</h3>
+            <div class="count">
+            
+            ${pythoncount }<br><br>
+        <a href="/Pythonfull" class="btn">Show Students-></a>
+            </div>
+        </div>
+
+    </div>
 
 </div>
-
-</div>
-
-
-</body>
-</html>

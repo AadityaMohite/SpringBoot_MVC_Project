@@ -67,10 +67,16 @@ public class StudentController {
 	}
 	
 	@GetMapping("/home")
-	public String homePage() {
+	public String homePage(Model model) {
 		
+		long totalstudent = service.totalStudent();
+		model.addAttribute("totalstudent", totalstudent);
 		
-		
+		 long count =      service.totaljavafullstack();
+	      model.addAttribute("count",count);
+	      
+	    long pythoncount =  service.totalpythonfullstack();
+	    model.addAttribute("pythoncount", pythoncount);
 		
 		return "home";
 	}
@@ -112,5 +118,22 @@ public class StudentController {
 	public String about() {
 		return "About";
 	}
+	
+	@GetMapping("/Javafull")
+	public String JfullStack(Model model) {
+		List<StudentDto> students = service.Jfullstack();
+		
+		model.addAttribute("students", students);
+		
+		return "Javafull";
+		
+	}
+	@GetMapping("/Pythonfull")
+	public String PfullStack(Model model) {
+		List<StudentDto> students = service.Pfullstack();
+		model.addAttribute("students", students);
+		return "Pythonfull";
+	}
+	
 	
 }

@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.SortedMap;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.Aadi.Studentdto.StudentDto;
@@ -81,6 +84,7 @@ public class StudentService {
 	public Student editStudent(int id) {
 		Student student = null;
 		Optional<Student> op =   studentRepository.findById(id);
+		                           
 		
 		if(op.isPresent()) {
 	          student = op.get();
@@ -98,5 +102,72 @@ public class StudentService {
 		
 		
 	}
+	
+	public long totalStudent() {
+		
+		   long count   =   studentRepository.count();
+		   
+		   return count;
+		
+	}
+	
+	public long totaljavafullstack() {
+		     
+		long javafullstackcount =    studentRepository.countByCourse("Java Full Stack");
+		
+		return javafullstackcount;
+		      
+	}
+	public long totalpythonfullstack() {
+	     
+		long pythonfullstackcount =    studentRepository.countByCourse("Python Full Stack");
+		
+		return pythonfullstackcount;
+		      
+	}
+	
+	public List<StudentDto> Jfullstack() {
+		
+		       List<Student> students   =     studentRepository.findByCourse("Java Full Stack");
+		       
+		       List<StudentDto> dtostudents = new ArrayList<>();
+				
+				for (Student student : students) {
+					
+					StudentDto dtostudent = new StudentDto();
+					
+					BeanUtils.copyProperties(student, dtostudent);
+					
+					dtostudent.setTimings(Arrays.toString(student.getTimings()));
+					
+					dtostudents.add(dtostudent);
+					
+				}
+				
+				
+				
+				return dtostudents;
+		
+	}
+	
+	public List<StudentDto> Pfullstack() {
+		List<Student> students = studentRepository.findByCourse("Python Full Stack");
+		
+		List<StudentDto> dtostudents = new ArrayList<>();
+		
+		for (Student student : students) {
+			StudentDto dtostudent = new StudentDto();
+			
+			BeanUtils.copyProperties(student, dtostudent);
+			
+			dtostudent.setTimings(Arrays.toString(student.getTimings()));
+			dtostudents.add(dtostudent);
+			
+		}
+		
+		return  dtostudents;
+	}
+	
+	
 	
 }

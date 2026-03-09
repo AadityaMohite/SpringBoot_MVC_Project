@@ -159,7 +159,7 @@ h1{
     </div>
 </div>
 <div class="container">
-<h1>Registered Students</h1>
+<h1>Java Full-Stack Registered Students</h1>
 
 <div class="table-wrapper">
 <table>
@@ -174,7 +174,7 @@ h1{
    <th>Duration</th>
    <th>Address</th>
    <th>Mobile</th>
-   <th>Action</th>
+   
 </tr>
 
 <c:forEach var="student" items="${students}">
@@ -189,13 +189,6 @@ h1{
   <td>${student.courseduration}</td>
   <td>${student.address}</td>
   <td>${student.mobileno}</td>
-  <td class="action-buttons">
-    <a href="edit?id=${student.id}" class="btn update-btn">Update</a>
-    <a href="delete?id=${student.id}" class="btn delete-btn"
-       onclick="return confirm('Are you want to delete Student data ?');">
-       Delete
-    </a>
-  </td>
 </tr>
 </c:forEach>
 
