@@ -3,6 +3,7 @@ package com.Aadi.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +33,23 @@ public class StudentService {
 		}
 	
 	    
-	    if(studentRepository.existsByEmail(student.getEmail())) {
-	    	return "Email is alerady exists please enter the new email";
+	    Optional<Student> existing = studentRepository.findByEmail(student.getEmail());
+
+	    if (existing.isPresent()) {
+
+	        // If updating same student → allow update
+	        if (student.getId() != null &&
+	            existing.get().getId().equals(student.getId())) {
+
+	            studentRepository.save(student);
+	            return "Updated Successfully";
+	        }
+
+	        return "Email is alerady exists please enter the new email";
 	    }
-	    
-	    
-	    
-		   studentRepository.save(student);
-		   
-		   return "Student saved Sucessfully";
+
+	    studentRepository.save(student);
+	    return "Saved Successfully";
 		
 		
 	}
@@ -69,6 +78,25 @@ public class StudentService {
 	}
 	
 	
+	public Student editStudent(int id) {
+		Student student = null;
+		Optional<Student> op =   studentRepository.findById(id);
+		
+		if(op.isPresent()) {
+	          student = op.get();
+		}
+		
+		return student;
+		
+	}
 	
+	
+	public void deletestudent(int id) {
+		
+		studentRepository.deleteById(id);
+		
+		
+		
+	}
 	
 }

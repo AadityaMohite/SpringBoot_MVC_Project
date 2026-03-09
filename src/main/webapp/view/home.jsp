@@ -8,69 +8,48 @@
 <title>Student Portal - Home</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-html,body{
-height:100%;
-font-family:Arial, sans-serif;
-background:linear-gradient(135deg,#eef2f3,#d9e4f5);
+/* Background */
+body{
+    background: linear-gradient(to right, #4e73df, #1cc88a);
+    padding-top:70px;
 }
 
-/* NAVBAR */
-
+/* Navbar */
 .navbar{
-position:fixed;
-top:0;
-width:100%;
-height:65px;
-background:#1e293b;
-padding:0 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0px 4px 12px rgba(0,0,0,0.3);
-z-index:1000;
+    position:fixed;
+    top:0;
+    width:100%;
+    height:60px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-.logo{
-color:white;
-font-size:22px;
-font-weight:bold;
+.navbar h2{
+    color:#4e73df;
 }
 
-.nav-links a{
-color:#cbd5e1;
-text-decoration:none;
-margin-left:30px;
-font-size:15px;
-position:relative;
-transition:0.3s;
+.navbar a{
+    text-decoration:none;
+    color:#333;
+    margin-left:20px;
+    font-weight:500;
+    transition:0.3s;
 }
 
-.nav-links a:hover{
-color:#38bdf8;
+.navbar a:hover{
+    color:#1cc88a;
 }
-
-.nav-links a::after{
-content:"";
-position:absolute;
-width:0%;
-height:2px;
-left:0;
-bottom:-5px;
-background:#38bdf8;
-transition:0.3s;
-}
-
-.nav-links a:hover::after{
-width:100%;
-}
-
 
 /* MAIN SECTION */
 

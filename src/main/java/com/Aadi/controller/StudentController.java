@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Aadi.Service.StudentService;
 import com.Aadi.Studentdto.StudentDto;
@@ -74,6 +75,42 @@ public class StudentController {
 		return "home";
 	}
 	
+	@GetMapping("/edit")
 	
+	public String editstudent(@RequestParam int id, Model model) {
+		
+		
+	Student student =	service.editStudent(id);
+		
+	model.addAttribute("student",student);
+		
+	
+		
+		return "edit-student";
+		
+	}
+	
+	@PostMapping("/update")
+	public String updateStudent(Student student,Model model) {
+		
+		service.saveStudent(student);
+		
+		model.addAttribute("msg", "Update data Sucessfully");
+		
+		return "redirect:/student-List";
+	}
+	
+	
+	@GetMapping("/delete")
+	public String deleteByID(@RequestParam int id) {
+		
+		      service.deletestudent(id);
+		      return "redirect:/student-List";
+	}
+	
+	@GetMapping("/About")
+	public String about() {
+		return "About";
+	}
 	
 }

@@ -10,47 +10,67 @@
 <title>Student Enrollment Form</title>
 <style type="text/css">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Background */
-body{
-    background: linear-gradient(to right, #4e73df, #1cc88a);
-    padding-top:70px;
+html, body {
+    height: 100%;
+    overflow: hidden; /* NO scroll on the whole page */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef2f3, #d9e4f5);
 }
 
-/* Navbar */
-.navbar{
-    position:fixed;
-    top:0;
-    width:100%;
-    height:60px;
-    background:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 40px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 65px;
+    background: #1e293b;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
 }
 
-.navbar h2{
-    color:#4e73df;
+.logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.navbar a{
-    text-decoration:none;
-    color:#333;
-    margin-left:20px;
-    font-weight:500;
-    transition:0.3s;
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 15px;
+    position: relative;
+    transition: 0.3s ease;
 }
 
-.navbar a:hover{
-    color:#1cc88a;
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #38bdf8;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 /* ===== MAIN WRAPPER ===== */
@@ -67,13 +87,15 @@ body{
 }
 
 /* ===== FORM CONTAINER ===== */
-.form-container{
-    background:white;
-    width:430px;
-    margin:40px auto;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+.form-container {
+    background: #ffffff;
+    padding: 22px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+    width: 430px;
+    /* Scrollable inside the form only if screen is very short */
+    max-height: calc(100vh - 85px); /* 65px navbar + 20px breathing room */
+    overflow-y: auto;
 }
 
 /* ===== HEADINGS ===== */
@@ -164,7 +186,9 @@ input[type="submit"]:hover {
 
 <h3 style="color:green; font-size:14px; margin-bottom:10px;">${message}</h3>
 
-<c:form action="save" modelAttribute="student" method="post">
+<c:form action="update" modelAttribute="student" method="post">
+
+<c:hidden path="id"/>
 
 <div class="form-group">
     <label>Enter the Name:</label>
@@ -230,7 +254,7 @@ input[type="submit"]:hover {
     <c:input path="mobileno"/>
 </div>
 
-<input type="submit" value="Save">
+<input type="submit" value="Update Student Detials">
 
 </c:form>
 

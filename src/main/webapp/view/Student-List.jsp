@@ -94,6 +94,39 @@ h1{
     color:white;
     margin-bottom:20px;
 }
+
+.btn{
+    display:inline-block;
+    padding:6px 14px;
+    margin:3px;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:0.3s ease;
+}
+
+.update-btn{
+    background:#1cc88a;
+    color:white;
+}
+
+.update-btn:hover{
+    background:#17a673;
+    transform:translateY(-2px);
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+.delete-btn{
+    background:#e74a3b;
+    color:white;
+}
+
+.delete-btn:hover{
+    background:#c0392b;
+    transform:translateY(-2px);
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+
 </style>
 
 </head>
@@ -106,7 +139,7 @@ h1{
         <a href="/home">Home</a>
         <a href="/About">About</a>
         <a href="/enrollment">Enrollment</a>
-        <a href="/Student-List">Student-List</a>
+        <a href="/student-List">Student-List</a>
     </div>
 </div>
 
@@ -125,6 +158,7 @@ h1{
    <th>Duration</th>
    <th>Address</th>
    <th>Mobile</th>
+   <th>Action</th>
 </tr>
 
 <c:forEach var="student" items="${students}">
@@ -139,6 +173,7 @@ h1{
   <td>${student.courseduration}</td>
   <td>${student.address}</td>
   <td>${student.mobileno}</td>
+  <td><a href="edit?id=${student.id }" class="btn update-btn">Update</a> <a href="delete?id=${student.id }" class="btn delete-btn" onclick=" return confirm('Are you want to delete Student data ?');"> Delete</a>
 </tr>
 </c:forEach>
 
