@@ -134,6 +134,9 @@ public class StudentController {
 		model.addAttribute("students", students);
 		return "Pythonfull";
 	}
-	
+	 @GetMapping("/access-denied")
+	    public String accessDenied() {
+	        return "access-denied";
+	    }
 	
 }

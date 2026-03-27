@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -174,7 +175,11 @@ h1{
    <th>Duration</th>
    <th>Address</th>
    <th>Mobile</th>
-   <th>Action</th>
+   <th>
+    <sec:authorize access="hasRole('ADMIN')">
+        Action
+    </sec:authorize>
+</th>
 </tr>
 
 <c:forEach var="student" items="${students}">
@@ -190,12 +195,14 @@ h1{
   <td>${student.address}</td>
   <td>${student.mobileno}</td>
   <td class="action-buttons">
-    <a href="edit?id=${student.id}" class="btn update-btn">Update</a>
-    <a href="delete?id=${student.id}" class="btn delete-btn"
-       onclick="return confirm('Are you want to delete Student data ?');">
-       Delete
-    </a>
-  </td>
+    <sec:authorize access="hasRole('ADMIN')">
+        <a href="edit?id=${student.id}" class="btn update-btn">Update</a>
+        <a href="delete?id=${student.id}" class="btn delete-btn"
+           onclick="return confirm('Are you want to delete Student data ?');">
+           Delete
+        </a>
+    </sec:authorize>
+</td>
 </tr>
 </c:forEach>
 
