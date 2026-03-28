@@ -1,64 +1,62 @@
-# 🎓 Student Portal - Spring Boot MVC Project
+🎓 Student Portal - Spring Boot MVC Project
+📌 Project Overview
 
-## 📌 Project Overview
-Student Portal is a web-based CRUD application developed using Spring Boot MVC architecture.  
-It allows administrators to manage student enrollments efficiently.
+Student Portal is a web-based CRUD application developed using Spring Boot MVC architecture.
+It allows administrators to manage student enrollments efficiently with secure, role-based access control.
 
----
-
-## 🚀 Features
-
-- Student Registration
-- Email Uniqueness Validation
-- Auto Course Duration Assignment
-- Update Student Details
-- Delete Student Record
-- DTO Pattern Implementation
-- Layered Architecture (Controller → Service → Repository)
-
----
-
-## 🛠️ Tech Stack
-
-| Layer        | Technology Used |
-|-------------|----------------|
-| Backend     | Spring Boot, Spring MVC |
-| ORM         | Spring Data JPA (Hibernate) |
-| Database    | MySQL |
-| Frontend    | JSP, CSS |
-| Architecture| MVC Architecture |
-
----
-
-## 📂 Project Structure
-
-- Controller Layer
-- Service Layer
-- Repository Layer
-- DTO Implementation
-- Entity Mapping with JPA
-
----
-
-## ⚙️ Concepts Implemented
-
-- Dependency Injection (IoC)
-- @Controller
-- @Service
-- @Repository
-- @Autowired
-- JPA Repository Methods
-- Optional Handling
-- BeanUtils Property Copying
-
----
-
-## 🗄️ Database
-
-MySQL Database  
-JPA Entity Mapping  
-Email Field has Unique Constraint
-
+🚀 Features
+🔐 Security Features (New)
+Spring Security Integration
+Role-Based Access Control (RBAC)
+Admin Role
+Add new students
+Update student details
+Delete student records
+User Role
+View enrolled students only
+Authentication & Authorization
+Secure endpoints using role restrictions
+📚 Core Features
+Student Registration
+Email Uniqueness Validation
+Auto Course Duration Assignment
+Update Student Details (Admin only)
+Delete Student Record (Admin only)
+View Enrolled Students (User & Admin)
+DTO Pattern Implementation
+Layered Architecture (Controller → Service → Repository)
+🛠️ Tech Stack
+Layer	Technology Used
+Backend	Spring Boot, Spring MVC, Spring Security
+ORM	Spring Data JPA (Hibernate)
+Database	MySQL
+Frontend	JSP, CSS
+Architecture	MVC Architecture
+📂 Project Structure
+Controller Layer
+Service Layer
+Repository Layer
+DTO Implementation
+Entity Mapping with JPA
+Security Configuration (Spring Security)
+⚙️ Concepts Implemented
+Dependency Injection (IoC)
+@Controller, @Service, @Repository
+@Autowired
+Spring Security Configuration
+Role-Based Authorization
+JPA Repository Methods
+Optional Handling
+BeanUtils Property Copying
+🔐 Authorization Logic
+Role	Permissions
+ADMIN	Add, Update, Delete Students
+USER	View Enrolled Students Only
+🗄️ Database
+MySQL Database
+JPA Entity Mapping
+Email Field with Unique Constraint
+Role-based user data (Admin/User)
 ---
 
 ## 📸 Screenshots
