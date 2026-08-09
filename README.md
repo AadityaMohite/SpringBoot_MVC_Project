@@ -87,13 +87,6 @@ src/
 - Email field with unique constraint  
 - Role-based user data (ADMIN / USER)  
 
----
-
-## 📸 Screenshots
-
-_Add your project screenshots here_
-
----
 
 ## ▶️ How to Run
 
@@ -113,23 +106,3 @@ _Add your project screenshots here_
 
 Aaditya Yuvraj Mohite
 Computer Science Engineering Student
-
-
----
-
-### Key Improvements Done
-- Proper markdown formatting (GitHub standard)
-- Clean section separation
-- Table alignment fixed
-- Code blocks added
-- Professional structure (recruiter-friendly)
-
----
-
-If you want next level upgrade, I can add:
-- 📌 GitHub badges (build, version, etc.)
-- 📌 Project demo section
-- 📌 API documentation section (Swagger)
-- 📌 Screenshots layout (grid style)
-
-Just tell 👍
